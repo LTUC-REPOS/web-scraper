@@ -24,6 +24,10 @@ def get_citations_needed_count(url) -> int:
 
 def get_citations_needed_report(url) -> str:
 
+    """
+    This functions Gets all the paragraphs that missing citations
+    """
+
     page = requests.get(url)
     soup = BeautifulSoup(page.content, "html.parser")
 
@@ -31,7 +35,7 @@ def get_citations_needed_report(url) -> str:
     for citation in citations:
         print(citation.parent.parent.parent.text)
         print()
-        
+
 
 
 get_citations_needed_count(url)
